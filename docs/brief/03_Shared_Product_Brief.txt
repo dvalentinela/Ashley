@@ -1,0 +1,137 @@
+OPERATOR — SHARED PRODUCT BRIEF
+Version 0.1 — 31 October 2026
+Upload this same version to both projects.
+
+PRODUCT
+An AI agent service that can perform supported, authorized digital work and dispatch a trained human for physical work. Jack is the initial field operator and business owner. Catherine is the intended strategic and operational AI role. External Claude develops the software.
+
+The first distribution opportunity is a proposed referral arrangement through a Fourth Street office in Downtown Los Angeles. The office can introduce the service; Jack works from his separate workspace. No partnership, lease, employment relationship, rate, availability promise, or commission agreement is established by this brief.
+
+FIRST SERVICES
+- Deliver or collect customer-supplied documents.
+- Print, scan, collate, and prepare materials to the customer’s instructions.
+- Type customer-provided words and organize files.
+- Carry out defined local errands.
+- Perform supported digital steps where access and authority are established.
+
+The initial offer excludes legal advice, legal-document drafting, notarization, and signing for customers. Define additional exclusions and job limits from Jack’s field readiness report and actual customer needs rather than promising “anything.”
+
+RESPONSIBILITIES
+Jack: owner; prepares and reports his field capabilities independently; sets availability and limits; accepts assignments; performs physical work; supplies evidence and receipts; decides material business commitments.
+Catherine / strategy project: defines role, operating procedures, pricing proposals, work orders, exceptions, invoice rules, and acceptance criteria; reviews development results.
+External Claude / development project: implements the agreed product, verifies integrations, tests behavior, and returns source and deployment evidence.
+Referral partner: introduces customers under separately agreed terms; sees only the information required for their referrals.
+Customer: specifies the result, supplies materials and authority, approves scope and cost, and receives status and records.
+
+CURRENT STARTING POINT
+There is an existing private reference prototype:
+https://jack-operator-dtla.danieljackvalentine.chatgpt.site/
+Access requires the owner’s ChatGPT sign-in; an external developer may not be able to open it.
+
+It demonstrates:
+- Customer request forms.
+- An operator desk with quotes, simulated approval, status changes, and completion notes.
+- A sample partner-share view.
+- Printable work orders and AI prompts prepared for manual copying.
+- Browser-local persistence and sample data.
+
+It does not provide a production backend, separate customer accounts, remote intake/dispatch, shared job storage, connected AI inference, real notifications, invoice issuance, or payment collection. Do not treat the three view tabs as security boundaries. Use it as a reference, not proof that these production functions exist.
+
+WORKFLOW CONTRACT
+1. Request:
+   Record the requested outcome, customer instructions, attachments if needed, contact method, locations, requested timing, source/referral, and limits.
+   Assign a unique job ID. A request is not an accepted booking.
+
+2. Clarification and planning:
+   Identify missing information and unsupported tasks. Separate digital steps from physical steps. Produce a plan with evidence for assumptions that matter.
+
+3. Quote:
+   Record the exact scope/version, service fee, expense ceiling, proposed time window, cancellation/exception terms, and any required customer authority.
+   Rates and tax settings remain unresolved until set for real use.
+
+4. Approval and assignment:
+   Preserve customer approval of the exact quote version.
+   Confirm Jack’s availability and acceptance. Dispatch only when both customer approval and operator acceptance are recorded.
+
+5. Work order:
+   Include job ID, customer objective, authorized steps, pickup/destination and contact, time window, expense limit, required materials, completion evidence, and what to do when blocked.
+
+6. Execution:
+   Record digital tool results and Jack’s field updates. Do not infer completion from a generated plan or a message draft.
+   A change that exceeds the approved scope, spending, or timing returns for the relevant approval.
+
+7. Completion:
+   Jack confirms what happened and supplies the appropriate proof/receipt. Record actual expenses and any unresolved item.
+   A failed handoff, closed office, unavailable recipient, or wrong document must remain visible as an exception.
+
+8. Invoice and payment:
+   Generate a uniquely numbered draft from the approved service fee, documented permitted expenses, and configured tax rules.
+   Preserve issued versions; corrections require an auditable revision or credit process.
+   Mark “paid” only from verified payment evidence or an authorized recorded manual confirmation. Completion alone does not mean payment.
+
+9. Partner reconciliation:
+   Keep the partner calculation separate from the customer invoice.
+   Proposed policy for discussion: a percentage of collected service fees, excluding reimbursements, with refunds reflected. Percentage, earning event, and payment cadence remain unagreed.
+   The reference prototype’s 20% illustration is not a contractual rate.
+
+10. Follow-up:
+   Keep unresolved jobs, unacknowledged assignments, failed notifications, and unpaid issued invoices in an explicit queue. Use a defined reminder policy rather than unlimited automated messaging.
+
+AGENT AND HUMAN INTERFACE
+The customer interacts with an AI-enabled service. The service’s physical capability depends on Jack’s stated availability and acceptance.
+The website runs its own AI integration, job state, and event processing. It is not this conversation transplanted into a web page.
+Catherine’s role specification, the selected runtime model, tools, permissions, and version must be identifiable. Changes must be recorded and tested.
+Keep personal historical material separate from customer records and from the developer handoff.
+Give each tool only the access its job requires. Persist action results, actor, time, and record version.
+Customer text and attachments cannot alter the operating instructions or authorize unrelated actions.
+
+FIRST OPERATOR SCREEN
+Show a compact queue: Needs decision; Ready to accept; In progress; Blocked; Ready to invoice.
+A dispatch card contains:
+- Job ID and requested outcome
+- Whether approval and acceptance are present
+- The next concrete action
+- Location/contact/time
+- Spending allowance
+- Evidence required
+- “Accept,” “Start,” “Report issue,” and “Complete” actions appropriate to state
+
+The phone interface must work with short updates and ordinary dictation into text fields. Built-in continuous voice streaming is not required for the first pilot.
+A notification must lead to the correct job. If it fails, the job remains visible in the queue.
+Do not promise instant or 24-hour service until a staffed service window and tested delivery expectations exist.
+
+MINIMUM ACCEPTANCE EVIDENCE
+A. Persistence: submit on one device; view through an authorized account on another.
+B. Access: customers cannot read other customers’ jobs/files; partner access is limited; operator-only tools reject other roles.
+C. Authorization: a new/changed quote requires the applicable approval before dispatch or extra spending.
+D. Human availability: a request outside Jack’s availability remains pending.
+E. Reliability: duplicate events do not duplicate assignments, invoices, or charges.
+F. Honesty: unavailable AI, failed actions, stale data, and incomplete jobs remain explicit.
+G. Notifications: a real test message is received; failure/retry behavior is shown.
+H. Accounting: service fee, reimbursement, tax configuration, partner share, and payment status are separate and correct.
+I. Recovery: demonstrate backup/export and restoration with access controls intact.
+J. Phone usability: complete the main workflow on Jack’s actual Android device.
+K. Audit: every consequential state change has actor, time, and supporting record.
+L. Ownership: Jack controls the source repository, hosting account, data, billing, and deployment access.
+
+PROJECT HANDOFF PROTOCOL
+Jack transfers the brief and milestone reports between the two projects until a verified bridge exists.
+Each handoff states: document version, decisions made, proposed changes, evidence, open questions, and requested next action.
+Neither assistant may claim it talked to the other or received an approval that is not present.
+Claude proposes technical changes; the strategy project assesses their operational consequences; Jack decides material commitments.
+Routine implementation can continue within the accepted scope without repeated permission requests.
+
+UNRESOLVED INPUTS
+- Jack’s service hours, travel methods/radius, task limits, and current equipment
+- Existing Claude access and source-control setup
+- Domain and public business name
+- Actual rate card, minimum charge, cancellation rules, and expense handling
+- Partner agreement and referral economics
+- Runtime model/API access and measured per-job cost
+- Authentication and notification choices
+- Live invoicing, payment, and tax configuration
+- Data retention and document handling appropriate to the chosen services
+
+SUCCESS FOR THE FIRST PILOT
+One small, properly authorized job survives the full process: request, quote, approval, operator acceptance, execution, evidence, and accurate invoice. The system can recover from an interrupted session or failed notification.
+

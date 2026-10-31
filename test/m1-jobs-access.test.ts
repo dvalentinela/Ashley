@@ -110,3 +110,24 @@ describe("M1 — durable job system", () => {
     expect(stale.status).toBe(409);
   });
 });
+
+describe("M1 — sign-in abuse limits", () => {
+  it("rate-limits magic-link requests per client IP taken from cf-connecting-ip", async () => {
+    const { createAuth } = await import("../src/auth");
+    const prodLike = { ...env, APP_ENV: "development" } as unknown as import("../src/env").Env;
+    const auth = createAuth(prodLike);
+    const ask = (ip: string, n: number) =>
+      auth.handler(
+        new Request("http://localhost/api/auth/sign-in/magic-link", {
+          method: "POST",
+          headers: { "content-type": "application/json", origin: "http://localhost", "cf-connecting-ip": ip },
+          body: JSON.stringify({ email: `limit${n}@customer.test`, callbackURL: "/" }),
+        }),
+      );
+    const statuses: number[] = [];
+    for (let i = 0; i < 6; i++) statuses.push((await ask("203.0.113.7", i)).status);
+    expect(statuses.slice(0, 5)).toEqual([200, 200, 200, 200, 200]);
+    expect(statuses[5]).toBe(429);
+    expect((await ask("198.51.100.9", 99)).status).toBe(200);
+  });
+});

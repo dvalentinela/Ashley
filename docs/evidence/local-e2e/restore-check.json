@@ -1,0 +1,16 @@
+{
+  "base": "http://localhost:8788",
+  "checked_at": "2026-10-31T22:35:05.127Z",
+  "ok": true,
+  "results": {
+    "operatorSeesJob": true,
+    "auditEvents": 16,
+    "invoiceIntact": true,
+    "ownerFile": 200,
+    "otherCustomerJob": 404,
+    "otherCustomerFile": 404,
+    "partnerFile": 404,
+    "partnerLedgerEarned": true,
+    "customerOperatorQueue": 403
+  }
+}

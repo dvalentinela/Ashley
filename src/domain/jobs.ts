@@ -461,9 +461,10 @@ export async function operatorQueue(env: Env) {
         WHERE i.status = 'issued' AND j.status = 'invoiced' ORDER BY i.issued_at`,
     ),
     unacknowledged: await q<{ id: string; job_id: string; ref: string; subject: string; status: string; created_at: number }>(
-      `SELECT n.id, n.job_id, j.ref, n.subject, n.status, n.created_at FROM notifications n JOIN jobs j ON j.id = n.job_id
+      `SELECT MIN(n.id) AS id, n.job_id, j.ref, n.subject, GROUP_CONCAT(DISTINCT n.status) AS status, MIN(n.created_at) AS created_at
+        FROM notifications n JOIN jobs j ON j.id = n.job_id
         WHERE n.requires_ack = 1 AND n.acknowledged_at IS NULL AND n.recipient_email IN (${placeholders})
-        ORDER BY n.created_at`,
+        GROUP BY n.job_id, n.subject ORDER BY MIN(n.created_at)`,
       ...cfg.operatorEmails,
     ),
     failedNotifications: await q<{ id: string; job_id: string | null; ref: string | null; subject: string; status: string; attempts: number; last_error: string | null; recipient_email: string }>(

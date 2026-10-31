@@ -1,0 +1,10 @@
+> operator-service@0.1.0 pretest
+> node scripts/build-specs.mjs
+built 1 spec(s): provisional-0.1
+> operator-service@0.1.0 test
+> vitest run
+ RUN  v4.1.12 /home/user/Ashley
+console warning; message = Called .text() on an HTTP body which does not appear to be text. The body's Content-Type is "application/pdf". The result will probably be corrupted. Consider checking the Content-Type header before interpreting entities as text.
+ Test Files  5 passed (5)
+      Tests  33 passed (33)
+   Duration  20.18s (transform 14.91s, setup 39.40s, import 181ms, tests 8.69s, environment 0ms)

@@ -1,0 +1,99 @@
+{
+  "base": "http://localhost:8787",
+  "jobId": "job_qmkznmfkj69k",
+  "ref": "J-0001",
+  "invoice": "TEST-INV-00001",
+  "steps": [
+    {
+      "at": "2026-10-31T22:33:24.161Z",
+      "step": "operator signed in (magic link)",
+      "url": "http://localhost:8787/op"
+    },
+    {
+      "at": "2026-10-31T22:33:24.417Z",
+      "step": "partner added with TEST 20% share",
+      "refLink": "http://localhost:8787/r/kjynk3xq"
+    },
+    {
+      "at": "2026-10-31T22:33:24.636Z",
+      "step": "availability declared"
+    },
+    {
+      "at": "2026-10-31T22:33:25.032Z",
+      "step": "customer signed in through partner referral link"
+    },
+    {
+      "at": "2026-10-31T22:33:25.444Z",
+      "step": "customer submitted request",
+      "jobId": "job_qmkznmfkj69k",
+      "ref": "J-0001"
+    },
+    {
+      "at": "2026-10-31T22:33:25.658Z",
+      "step": "operator sees request in queue on separate session"
+    },
+    {
+      "at": "2026-10-31T22:33:27.747Z",
+      "step": "Catherine (PROVISIONAL, fake provider) produced a plan; actions await approval"
+    },
+    {
+      "at": "2026-10-31T22:33:28.016Z",
+      "step": "operator sent quote v1 ($45 fee, $10 expense ceiling)"
+    },
+    {
+      "at": "2026-10-31T22:33:28.319Z",
+      "step": "customer approved quote v1"
+    },
+    {
+      "at": "2026-10-31T22:33:28.767Z",
+      "step": "operator accepted → dispatched with work order"
+    },
+    {
+      "at": "2026-10-31T22:33:29.771Z",
+      "step": "started; evidence and $6.50 receipt recorded"
+    },
+    {
+      "at": "2026-10-31T22:33:30.583Z",
+      "step": "operator confirmed completion"
+    },
+    {
+      "at": "2026-10-31T22:33:30.623Z",
+      "step": "duplicate completion event → no second invoice",
+      "status": 303,
+      "location": "/op/jobs/job_qmkznmfkj69k?ok=completed_duplicate"
+    },
+    {
+      "at": "2026-10-31T22:33:31.002Z",
+      "step": "invoice issued",
+      "invNumber": "TEST-INV-00001",
+      "total": "$51.50"
+    },
+    {
+      "at": "2026-10-31T22:33:31.132Z",
+      "step": "customer sees issued TEST invoice $51.50"
+    },
+    {
+      "at": "2026-10-31T22:33:32.096Z",
+      "step": "partner sees referral + $9.00 TEST share, no customer details"
+    },
+    {
+      "at": "2026-10-31T22:33:33.282Z",
+      "step": "access checks",
+      "otherCustomerJob": 404,
+      "otherCustomerFile": 404,
+      "otherCustomerInvoice": 404,
+      "partnerFile": 404,
+      "partnerOperatorPage": 403,
+      "customerOperatorQueue": 403,
+      "ownerFile": 200
+    },
+    {
+      "at": "2026-10-31T22:33:33.503Z",
+      "step": "manual TEST payment confirmation recorded → paid; partner share earned"
+    },
+    {
+      "at": "2026-10-31T22:33:33.869Z",
+      "step": "failed notification visible with retry; operator re-queued one"
+    }
+  ]
+}

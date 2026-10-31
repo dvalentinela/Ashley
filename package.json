@@ -3,13 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Operator — AI agent service with human field dispatch (Cloudflare Workers + D1 + R2)",
+  "description": "Operator \u2014 AI agent service with human field dispatch (Cloudflare Workers + D1 + R2)",
   "scripts": {
-    "dev": "wrangler dev",
+    "build:specs": "node scripts/build-specs.mjs",
+    "predev": "node scripts/build-specs.mjs",
+    "dev": "wrangler dev --test-scheduled",
     "db:migrate:local": "wrangler d1 migrations apply operator-db --local",
     "db:migrate:remote": "wrangler d1 migrations apply operator-db --remote",
+    "pretypecheck": "node scripts/build-specs.mjs",
     "typecheck": "tsc --noEmit",
+    "pretest": "node scripts/build-specs.mjs",
     "test": "vitest run",
+    "e2e:local": "node scripts/e2e-local.cjs",
+    "backup:remote": "mkdir -p backups && wrangler d1 export operator-db --remote --output backups/operator-db-$(date -u +%Y%m%dT%H%M%SZ).sql",
+    "predeploy": "node scripts/build-specs.mjs && tsc --noEmit && vitest run",
     "deploy": "wrangler deploy"
   },
   "dependencies": {
@@ -24,5 +31,8 @@
     "typescript": "5.9.3",
     "vitest": "4.1.12",
     "wrangler": "4.156.0"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }

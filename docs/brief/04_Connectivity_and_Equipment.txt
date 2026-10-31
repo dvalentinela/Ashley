@@ -1,0 +1,73 @@
+OPERATOR — CONNECTIVITY AND EQUIPMENT PLAN
+31 October 2026 | Planning assumptions, not purchase authorization
+
+DECISION
+Use existing equipment and subscriptions for setup. Add only the services required by the tested architecture. A new computer, office lease, printer, cellular plan, and paid SMS service are not prerequisites for preparing the two projects.
+
+STAGE 0 — SETUP AND DESIGN
+Incremental target: $0 where existing account access and equipment are sufficient.
+- Reuse Jack’s existing ChatGPT account.
+- Use existing Claude access if it includes Opus 5.5 and the necessary Code capability. Verify the account before purchasing an additional plan.
+- Reuse the existing Android phone, mobile data, Wi-Fi, charging equipment, and computer access, where available.
+- Prepare a private source repository owned by Jack. Keep service code separate from unrelated projects.
+- Use fictional jobs and test invoices.
+- Complete 05_Jack_Field_Readiness.txt so equipment purchases solve an actual gap.
+
+CHATGPT API CREDIT CHECK
+OpenAI’s current documentation describes an API-credit benefit for eligible paid Pro and Business subscriptions. The user’s current tier, eligibility, linked organization, available balance, and activation status have not been verified.
+Before buying API credit: inspect ChatGPT Settings → Billing → API credits, or API Platform Billing. The receiving API organization must be the one used for the app.
+Treat API consumption separately from interactive ChatGPT use. A subscription alone does not wire the website to an API. Credits may expire and must be monitored.
+Use a small test budget and application-level usage controls. Provider alerts are not automatically a hard spending stop.
+Do not paste keys into either project chat. Claude should specify secret names and the provider’s secure configuration steps.
+
+STAGE 1 — SMALL WORKING PILOT
+Proposed architecture for Claude to evaluate:
+- Cloudflare Workers for the web/backend.
+- D1 for structured jobs and approvals.
+- R2 only where private attachments are required.
+- Queues or Workflows for durable processing.
+- Resend for transactional email.
+- Server-side OpenAI API access for Catherine, with the runtime model selected after verification and tests.
+- An established authentication solution.
+This is a candidate, not a requirement to buy these exact products. Claude must include dependencies and overages in the estimate and explain any alternative.
+
+Verified vendor baselines:
+- Cloudflare Workers has a free tier. Its paid plan begins at a minimum $5/month per account; usage can add charges. Database, storage, workflow and queue details must be included in the complete estimate.
+- Resend’s displayed free transactional tier includes 3,000 emails/month with a 100/day limit. Domain verification and sender setup still need to be completed.
+- Domain: select the public business name first. Obtain a live registration and renewal quote. A provisional allowance of $15–25/year is a planning allocation, not a verified quote for an available domain.
+- API: use eligible existing credits first if available. Otherwise propose a small explicit test allowance and report measured cost per completed job. No universal “unlimited AI” assumption.
+- Payments: invoice generation does not require a new paid invoicing subscription. Price any payment-processing integration separately before taking real payments.
+
+Planning envelope:
+Use $5–25/month as a provisional target for the initial hosting plus modest metered runtime, excluding existing chat subscriptions, domain registration, mobile service, payment fees, taxes, and field expenses. This is a design target, not a vendor quote or guaranteed all-in cost. Claude must return a credible itemized estimate and an overage/failure policy before activation.
+
+FIELD CONNECTIVITY
+- Confirm the phone’s actual data and hotspot plan, remaining allowance, and signal at pickup/delivery areas.
+- Test a dispatch notification while the phone is locked and while away from Wi-Fi.
+- Keep the operator queue usable even if an email notification is missed.
+- A second carrier or new plan is a later resilience option only if field testing shows a coverage problem.
+- Use an existing suitable business contact channel if available. Decide on a dedicated number after the customer-contact workflow is clear.
+- Start with email/in-app records. Paid SMS adds costs and provider setup; introduce it only if it solves a measured operational need.
+
+SMALL FIELD KIT — INVENTORY FIRST
+- Working USB-C charging cable and charger.
+- A power bank if the current phone cannot cover the intended shift.
+- A document sleeve or folder that protects papers during travel.
+- A simple way to capture readable receipts and handoff evidence using the phone.
+- Access to printing/scanning through an existing arrangement or per-job provider.
+Suggested combined allowance for missing basic accessories: $40–60, subject to actual gaps and current product quotes. This is not a recommendation to spend it all.
+Delay a printer/scanner purchase until actual print volume and per-job costs justify ownership. Confirm any office equipment arrangement with the owner rather than assuming access.
+Claude Code cloud work can reduce the need for an immediate laptop purchase. If Jack already has computer access, use it for account setup and review.
+
+WHAT CLAUDE MUST RETURN BEFORE PURCHASES
+For each item: purpose; owned/existing alternative; exact vendor and plan; verified price and date; taxes/fees; recurring versus one-time cost; renewal/overage terms; trigger for buying; and a low-cost fallback.
+Separate required now, required for pilot, and optional later.
+Do not purchase, sign a paid contract, create charges, or expose the app publicly merely because this plan lists an option.
+
+OFFICIAL SOURCES — CHECKED 31 OCTOBER 2026
+Models: https://learn.chatgpt.com/docs/models
+API credit benefit: https://developers.openai.com/api/docs/guides/chatgpt-api-credits
+Cloudflare: https://developers.cloudflare.com/workers/platform/pricing/
+Resend: https://resend.com/pricing
+Claude cloud coding: https://support.claude.com/en/articles/12618689-use-claude-code-in-the-cloud
+

@@ -40,7 +40,12 @@ export function createAuth(env: Env) {
       max: 60,
       customRules: { "/sign-in/magic-link": { window: 600, max: 5 } },
     },
-    advanced: { useSecureCookies: cfg.appUrl.startsWith("https://") },
+    advanced: {
+      useSecureCookies: cfg.appUrl.startsWith("https://"),
+      // Cloudflare sets cf-connecting-ip at the edge (clients cannot spoof it).
+      // Without this, rate limiting finds no client IP in production.
+      ipAddress: { ipAddressHeaders: ["cf-connecting-ip"] },
+    },
     databaseHooks: {
       user: {
         create: {

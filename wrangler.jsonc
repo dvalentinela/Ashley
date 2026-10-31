@@ -1,0 +1,40 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "operator-service",
+  "main": "src/index.tsx",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "operator-db",
+      // Replace with the id printed by `npx wrangler d1 create operator-db`
+      // (see docs/SETUP.md). The placeholder works for local dev and tests.
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "r2_buckets": [{ "binding": "FILES", "bucket_name": "operator-files" }],
+  // Background runner: retries notification delivery and Catherine runs even
+  // when no browser tab is open.
+  "triggers": { "crons": ["* * * * *"] },
+  "vars": {
+    "APP_ENV": "development",
+    "APP_URL": "http://localhost:8787",
+    "APP_TIMEZONE": "America/Los_Angeles",
+    "LIVE_MODE": "false",
+    "EMAIL_PROVIDER": "dev",
+    "EMAIL_FROM": "Operator <onboarding@resend.dev>",
+    "AI_PROVIDER": "none",
+    "AI_MODEL": "",
+    "AI_EFFORT": "medium",
+    "AI_MONTHLY_BUDGET_USD": "5",
+    "AGENT_SPEC_ID": "provisional-0.1",
+    "DISPATCH_IMMEDIATE": "true",
+    "MAX_UPLOAD_BYTES": "10485760"
+  }
+  // Secrets (never in this file): BETTER_AUTH_SECRET, OPERATOR_EMAILS,
+  // RESEND_API_KEY, OPENAI_API_KEY or ANTHROPIC_API_KEY. Local values go in
+  // .dev.vars (git-ignored); production values via `wrangler secret put`.
+}

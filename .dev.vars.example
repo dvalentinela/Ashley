@@ -1,0 +1,10 @@
+# Copy to .dev.vars for local development. Never commit real values.
+BETTER_AUTH_SECRET=replace-with-output-of-openssl-rand-hex-32
+OPERATOR_EMAILS=jack@example.com
+# Only needed when EMAIL_PROVIDER=resend
+# RESEND_API_KEY=
+# Only needed when AI_PROVIDER=openai or anthropic
+# OPENAI_API_KEY=
+# ANTHROPIC_API_KEY=
+# AI_PRICE_INPUT_USD_PER_MTOK=
+# AI_PRICE_OUTPUT_USD_PER_MTOK=

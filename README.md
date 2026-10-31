@@ -28,7 +28,7 @@ npm ci
 cp .dev.vars.example .dev.vars   # set BETTER_AUTH_SECRET and OPERATOR_EMAILS
 npm run db:migrate:local
 npm run dev                      # http://localhost:8787 ; sign-in links at /dev/mailbox
-npm test                         # 33 tests inside the Workers runtime
+npm test                         # 34 tests inside the Workers runtime
 ```
 
 ## Layout

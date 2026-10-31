@@ -23,7 +23,7 @@ npm run dev                          # http://localhost:8787
   `AI_PRICE_OUTPUT_USD_PER_MTOK=5` in `.dev.vars` for a deterministic local
   planner, or leave `none` for manual mode.
 - Any address at `@fail.test` simulates failed email delivery.
-- Checks: `npm run typecheck`, `npm test` (33 tests, run inside workerd).
+- Checks: `npm run typecheck`, `npm test` (34 tests, run inside workerd).
 - Browser walk-through: with `npm run dev` running and
   `OPERATOR_EMAILS=jack@operator.test,backup-phone@fail.test`, `AI_PROVIDER=fake`
   on a fresh local database, run `npm run e2e:local`.

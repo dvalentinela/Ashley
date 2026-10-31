@@ -20,6 +20,11 @@ describe("configuration safety", () => {
   it("accepts a sane production config", () => {
     expect(config({ ...base }).env).toBe("production");
   });
+  it("refuses the dev mailbox on any non-local URL, even outside production", () => {
+    const dev = { ...base, APP_ENV: "development", EMAIL_PROVIDER: "dev" } as Env;
+    expect(() => config({ ...dev, APP_URL: "https://operator-service.example.workers.dev" } as Env)).toThrow("only allowed when APP_URL is localhost");
+    expect(config({ ...dev, APP_URL: "http://localhost:8787" } as Env).emailProvider).toBe("dev");
+  });
   it.each([
     [{ EMAIL_PROVIDER: "dev" }, "EMAIL_PROVIDER=dev"],
     [{ AI_PROVIDER: "fake" }, "Fake AI"],

@@ -88,6 +88,13 @@ export function config(env: Env): AppConfig {
   if (!env.BETTER_AUTH_SECRET || env.BETTER_AUTH_SECRET.length < 32) {
     throw new ConfigError("BETTER_AUTH_SECRET must be set (at least 32 characters)");
   }
+  // The dev mailbox shows sign-in links to anyone who can reach the site, so
+  // it may only run on a local address — even if APP_ENV was left at
+  // "development" by mistake in a deployment.
+  const localHost = ["localhost", "127.0.0.1", "[::1]"].includes(url.hostname);
+  if (emailProvider === "dev" && !localHost) {
+    throw new ConfigError("EMAIL_PROVIDER=dev is only allowed when APP_URL is localhost");
+  }
   const liveMode = env.LIVE_MODE === "true";
   if (appEnv === "production") {
     if (url.protocol !== "https:") throw new ConfigError("APP_URL must use https in production");

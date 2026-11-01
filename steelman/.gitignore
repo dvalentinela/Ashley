@@ -1,0 +1,10 @@
+# Weights, the runtime, logs and anything that may hold private conversations
+# stay on the machine. Only code, configuration and documentation are committed.
+models/
+runtime/
+logs/
+tests/results/
+conversations/
+*.gguf
+*.safetensors
+*.zip

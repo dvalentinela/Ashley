@@ -1,0 +1,123 @@
+{
+  "schema": "steelman-model-manifest/1",
+  "updated": "2026-11-01",
+  "model_name": "steelman",
+  "runtime": {
+    "name": "ollama",
+    "version": "v0.40.13",
+    "source_commit": "04088e7c9d41cba5d33bafbf788d87a465c79d5b",
+    "license": "MIT",
+    "windows_artifact": "ollama-windows-amd64.zip",
+    "download_base": "https://github.com/ollama/ollama/releases/download/v0.40.13/",
+    "checksum_file": "sha256sum.txt",
+    "artifact_sha256": null,
+    "artifact_sha256_note": "Not pinned. The session that wrote this manifest could read the Ollama source at this tag but could not reach GitHub release assets. install.ps1 verifies the zip against sha256sum.txt from the same release and records the hash it verified in runtime/installed.json. Copy that hash here to pin it.",
+    "host": "127.0.0.1",
+    "port": 11435,
+    "environment": {
+      "OLLAMA_NO_CLOUD": "1",
+      "OLLAMA_NOHISTORY": "1",
+      "OLLAMA_KEEP_ALIVE": "30m",
+      "OLLAMA_NUM_PARALLEL": "1",
+      "OLLAMA_MAX_LOADED_MODELS": "1"
+    }
+  },
+  "selection": {
+    "rule": "budget_gib = dedicated_vram_gib(NVIDIA or discrete AMD only) + max(0, ram_gib - reserved_ram_gib). Pick 14b when ram_gib >= min_ram_gib_14b and budget_gib >= min_budget_gib_14b; otherwise 7b when ram_gib >= min_ram_gib_7b; otherwise refuse. -Model 14b or -Model 7b overrides.",
+    "reserved_ram_gib": 8,
+    "min_ram_gib_14b": 16,
+    "min_budget_gib_14b": 13,
+    "min_ram_gib_7b": 8
+  },
+  "models": {
+    "14b": {
+      "preferred": true,
+      "label": "Qwen2.5-14B-Instruct-abliterated (huihui-ai), GGUF by featherless-ai-quants",
+      "quantization": "Q4_K_M",
+      "hf_repo": "featherless-ai-quants/huihui-ai-Qwen2.5-14B-Instruct-abliterated-GGUF",
+      "revision": "ed48fef312b00cd47b68a390e4d900c0e065d13e",
+      "revision_date": "2025-03-11",
+      "file": "huihui-ai-Qwen2.5-14B-Instruct-abliterated-Q4_K_M.gguf",
+      "url": "https://huggingface.co/featherless-ai-quants/huihui-ai-Qwen2.5-14B-Instruct-abliterated-GGUF/resolve/ed48fef312b00cd47b68a390e4d900c0e065d13e/huihui-ai-Qwen2.5-14B-Instruct-abliterated-Q4_K_M.gguf",
+      "size_bytes": 8988110816,
+      "sha256": "1c354d92bc72320ea828b638b5122fff77a29e84d65c404e28c404ee2e3c6179",
+      "architecture": "qwen2, 14.8B parameters, 48 layers",
+      "native_context": 32768,
+      "approx_memory_gib_at_8k_ctx": 10.5,
+      "lineage": [
+        {
+          "repo": "Qwen/Qwen2.5-14B-Instruct",
+          "revision": "cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8",
+          "license": "apache-2.0",
+          "status_2026_11_01": "public"
+        },
+        {
+          "repo": "huihui-ai/Qwen2.5-14B-Instruct-abliterated",
+          "revision": null,
+          "license": null,
+          "status_2026_11_01": "HTTP 401 from the Hugging Face API: deleted, renamed or private. Its model card and weights cannot be inspected."
+        },
+        {
+          "repo": "featherless-ai-quants/huihui-ai-Qwen2.5-14B-Instruct-abliterated-GGUF",
+          "revision": "ed48fef312b00cd47b68a390e4d900c0e065d13e",
+          "license": "not declared on the model card",
+          "status_2026_11_01": "public, not gated"
+        }
+      ],
+      "provenance_notes": [
+        "The abliteration step cannot be audited because the upstream huihui-ai repo is no longer public.",
+        "The quant card declares no license. The root model is Apache-2.0; treat the derivative as Apache-2.0 by inheritance, which is an inference and not a declaration.",
+        "The SHA-256 is the Hugging Face LFS object id at the pinned revision; the server reported the same value as X-Linked-Etag."
+      ]
+    },
+    "7b": {
+      "preferred": false,
+      "label": "Qwen2.5-7B-Instruct-abliterated-v2 (huihui-ai), GGUF by TensorBlock",
+      "quantization": "Q4_K_M",
+      "hf_repo": "tensorblock/Qwen2.5-7B-Instruct-abliterated-v2-GGUF",
+      "revision": "02a09afd3e8f21b886dadfe4ec0566b74ef2ee70",
+      "revision_date": "2025-07-08",
+      "file": "Qwen2.5-7B-Instruct-abliterated-v2-Q4_K_M.gguf",
+      "url": "https://huggingface.co/tensorblock/Qwen2.5-7B-Instruct-abliterated-v2-GGUF/resolve/02a09afd3e8f21b886dadfe4ec0566b74ef2ee70/Qwen2.5-7B-Instruct-abliterated-v2-Q4_K_M.gguf",
+      "size_bytes": 4683074112,
+      "sha256": "69be06c4feabbb9e77517446b5f991a2dac11b9e2dc5441e263cf82b3c3ccbee",
+      "architecture": "qwen2, 7.6B parameters, 28 layers",
+      "native_context": 32768,
+      "approx_memory_gib_at_8k_ctx": 5.5,
+      "lineage": [
+        {
+          "repo": "Qwen/Qwen2.5-7B-Instruct",
+          "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+          "license": "apache-2.0",
+          "status_2026_11_01": "public"
+        },
+        {
+          "repo": "huihui-ai/Qwen2.5-7B-Instruct-abliterated-v2",
+          "revision": "447ff10df7c9b7031f28eec54b9042a362d09696",
+          "license": "apache-2.0",
+          "status_2026_11_01": "public, not gated"
+        },
+        {
+          "repo": "tensorblock/Qwen2.5-7B-Instruct-abliterated-v2-GGUF",
+          "revision": "02a09afd3e8f21b886dadfe4ec0566b74ef2ee70",
+          "license": "apache-2.0",
+          "status_2026_11_01": "public, not gated; quantized with llama.cpp b4011"
+        }
+      ],
+      "provenance_notes": [
+        "TensorBlock deleted every GGUF except Q2_K from the main branch on 2026-01-27 (commit 98cac2301e7cee0adac1f6c6be45d9f2870fc422). The Q4_K_M file is still served at the pinned revision above; if Hugging Face ever purges that object, this URL stops working and the manifest needs a new source.",
+        "huihui-ai's own evaluation of this abliteration: IF_Eval 77.82 vs 76.44, MMLU-Pro 42.03 vs 43.12, TruthfulQA 57.81 vs 62.46, BBH 53.01 vs 53.92, GPQA 32.17 vs 31.91 (abliterated-v2 vs original Qwen2.5-7B-Instruct). The TruthfulQA drop matters for a reality-testing role."
+      ]
+    }
+  },
+  "verification": {
+    "see": "reports/2026-11-01-container-verification.md",
+    "date": "2026-11-01",
+    "where": "Linux build container, 4 vCPU, 15.6 GiB RAM, no GPU; llama-cpp-python 0.3.36. Not Ollama, not Windows.",
+    "weights_sha256_verified": ["14b", "7b"],
+    "persona_version": "0.3",
+    "persona_system_prompt_sha256": "8e8b93cca7006550e426fe163bddcc5cd0e3024d9ed7d3fbc0aaa77619a618f0",
+    "reference_test_automated_checks": { "14b": "7/7", "7b": "6/7" },
+    "windows_install_tested": false
+  }
+}

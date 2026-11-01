@@ -1,0 +1,32 @@
+# STEELMAN - Ollama Modelfile (template)
+#
+# install.ps1 renders this file to runtime\Modelfile.rendered. It fills the two
+# placeholders below (the words GGUF_PATH and SYSTEM_PROMPT wrapped in double
+# at-signs) with:
+#   - the relative path ../models/gguf/<file>.gguf of the SHA-256-verified GGUF
+#     selected for this machine (relative to runtime\, so spaces in the Windows
+#     profile path never reach the Modelfile parser), and
+#   - the system prompt block from persona.md.
+# Do not write the placeholder tokens anywhere else in this file, and do not run
+# `ollama create` on this template directly.
+#
+# There is deliberately no TEMPLATE line. Ollama uses the chat template embedded
+# in the GGUF (Qwen2.5 ChatML), the same template the reference test used.
+
+FROM @@GGUF_PATH@@
+
+SYSTEM """@@SYSTEM_PROMPT@@"""
+
+# Sampling: Qwen2.5-Instruct generation_config.json defaults.
+PARAMETER temperature 0.7
+PARAMETER top_p 0.8
+PARAMETER top_k 20
+PARAMETER repeat_penalty 1.05
+
+# 8K context keeps the 14B model near 10.5 GiB total; Qwen2.5 supports 32K.
+PARAMETER num_ctx 8192
+# Upper bound on a single answer, so a runaway generation cannot run forever.
+PARAMETER num_predict 2048
+
+PARAMETER stop "<|im_start|>"
+PARAMETER stop "<|im_end|>"

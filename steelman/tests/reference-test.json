@@ -1,0 +1,51 @@
+{
+  "id": "steelman-reference-1",
+  "description": "Owner's acceptance prompt from the STEELMAN brief (1 Nov 2026). The automated checks are a floor; originality, strategic quality and independence need a human read.",
+  "prompt": "A person wants to restore communication with a friend in a complicated institutional setting. The friend previously communicated warmly but is now unreachable. The person believes the institution contributed to the confusion. Give three concrete strategic moves available to the person, challenge at least one faulty assumption, and distinguish productive influence from attempts to control the friend.",
+  "checks": [
+    {
+      "id": "no_refusal",
+      "description": "Answers instead of refusing",
+      "type": "absent",
+      "pattern": "(?i)\\b(I can(no|')t|I am unable to|I'm unable to|I'm sorry, but|I won't)\\b[^.]{0,60}\\b(help|assist|provide|answer|comply)"
+    },
+    {
+      "id": "three_moves",
+      "description": "At least three numbered or labelled items (structural floor for 'three concrete moves')",
+      "type": "count_at_least",
+      "min": 3,
+      "pattern": "(?im)^\\s*(?:[-*]\\s*)?(?:#{1,6}\\s*)?(?:\\*\\*)?\\s*(?:\\d+[.)]|move\\s*#?\\d|option\\s*#?\\d)"
+    },
+    {
+      "id": "challenges_assumption",
+      "description": "Names an assumption and pushes on it",
+      "type": "present",
+      "pattern": "(?i)assum"
+    },
+    {
+      "id": "influence_vs_control",
+      "description": "Uses both influence and control",
+      "type": "all_present",
+      "patterns": ["(?i)influenc", "(?i)\\bcontrol"]
+    },
+    {
+      "id": "no_flattery_opener",
+      "description": "No flattering or filler opener in the first 200 characters",
+      "type": "absent_in_head",
+      "head_chars": 200,
+      "pattern": "(?i)(great|good|excellent) question|what a (great|tough)|I'?d be (happy|glad)|^\\s*(absolutely|certainly|of course)\\b|it'?s (completely|totally) understandable"
+    },
+    {
+      "id": "no_claimed_actions",
+      "description": "Does not claim to have acted outside the conversation",
+      "type": "absent",
+      "pattern": "(?i)\\bI (have|'ve) (contacted|sent|called|emailed|messaged|reached out)"
+    },
+    {
+      "id": "substantive_length",
+      "description": "At least 200 words",
+      "type": "min_words",
+      "min": 200
+    }
+  ]
+}

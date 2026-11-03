@@ -32,7 +32,7 @@ What `install.ps1` needs:
 
 | | 7B | 14B |
 |---|---|---|
-| RAM (auto-selection rule) | 8 GiB+ | 16 GiB+ and a memory budget of 13 GiB (see below) |
+| RAM (auto-selection rule) | an 8 GB PC | a 16 GB PC and a memory budget of 13 GiB (see below) |
 | Download | ~4.4 GiB weights + Ollama runtime | ~8.4 GiB weights + Ollama runtime |
 | Free disk during install | ~14 GiB | ~23 GiB |
 
@@ -77,8 +77,10 @@ whole folder).
 ```
 budget = largest discrete GPU's VRAM (NVIDIA, or AMD Radeon RX/PRO; 4 GiB+)
        + max(0, RAM - 8 GiB reserved for Windows and apps)
-14B  if RAM >= 16 GiB and budget >= 13 GiB
-7B   otherwise, if RAM >= 8 GiB
+14B  if RAM >= 15 GiB and budget >= 13 GiB
+7B   otherwise, if RAM >= 7 GiB
+(RAM = what Windows reports as usable: a 16 GB PC shows about 15.8 GiB,
+ an 8 GB PC about 7.8 GiB, hence 15 and 7.)
 ```
 
 Examples: 16 GiB RAM with no GPU gets 7B; 16 GiB with an 8 GiB GPU gets 14B with

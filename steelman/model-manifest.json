@@ -24,10 +24,11 @@
   },
   "selection": {
     "rule": "budget_gib = dedicated_vram_gib(NVIDIA or discrete AMD only) + max(0, ram_gib - reserved_ram_gib). Pick 14b when ram_gib >= min_ram_gib_14b and budget_gib >= min_budget_gib_14b; otherwise 7b when ram_gib >= min_ram_gib_7b; otherwise refuse. -Model 14b or -Model 7b overrides.",
+    "ram_note": "Thresholds are what Windows reports as TotalPhysicalMemory, which is a little below the installed size (a 16 GB PC reports about 15.8 GiB, an 8 GB PC about 7.8 GiB), hence 15 and 7.",
     "reserved_ram_gib": 8,
-    "min_ram_gib_14b": 16,
+    "min_ram_gib_14b": 15,
     "min_budget_gib_14b": 13,
-    "min_ram_gib_7b": 8
+    "min_ram_gib_7b": 7
   },
   "models": {
     "14b": {
